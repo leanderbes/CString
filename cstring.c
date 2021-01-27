@@ -89,7 +89,7 @@ translate_loop:
                         }
                 }
 end:
-                if (argc > 1)
+                if (!in_count)
                         fclose(in);
                 fclose(out);
         }
