@@ -5,7 +5,7 @@ cstring - Program that encodes text files as C string literals.
 `cstring [--single-line] [--hex] [FILE]...`
 ## Description
 **cstring** takes a list of files as command line arguments and translate each of them to an equivalent C string literal. Each of these is then written to the file called *FILE*.str.
-If files are passed as arguments stdin will be used and the output will be written to a.str.
+If no files are passed as arguments stdin will be used and the output will be written to a.str.
 ## Examples
 ```bash
 $ cat a.txt
