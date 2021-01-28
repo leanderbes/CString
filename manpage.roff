@@ -1,0 +1,38 @@
+.\" Manpage for cstring
+.TH man 1 "28 January 2021" "1.0" "cstring man page"
+.SH NAME
+cstring \- Program that encodes text files as C string literals.
+.SH SYNOPSIS
+cstring [--single-line] [--hex] [FILE]...
+.SH DESCRIPTION
+cstring takes a list of files as command line arguments and translate each of them to an equivalent C string literal. Each of these is then written to the file called FILE.str. If no files are passed as arguments stdin will be used and the output will be written to a.str.
+.SH EXAMPLES
+$ cat a.txt
+.sp 0
+Format the file called "a.txt"
+.sp 0
+$ cstring a.txt
+.sp 0
+$ cat a.txt.str
+.sp 0
+"Format the file called \\"a.txt\\"\\n"
+.sp 0
+""
+.sp 0
+$ cstring
+.sp 0
+You can also use stdin!
+.sp 0
+This will be written to a.str
+.sp 0
+$ cat a.str
+.sp 0
+"You can also use stdin!\\n"
+.sp 0
+"This will be written to a.str\\n"
+.sp 0
+""
+.SH OPTIONS
+--single-line - The string literal will be compressed to a single line (Does NOT affect the value of the string!).
+
+--hex - All characters will be written as their hex value using the \\xXX escape sequence.
