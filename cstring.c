@@ -41,8 +41,7 @@ use_stdin:
                 goto translate_loop;
 use_file_path:  ;
                 char *out_path = malloc((strlen(in_paths[i]) + 5) * sizeof (char));
-                strcpy(out_path, in_paths[i]);
-                strcpy(out_path + strlen(out_path), ".str");
+                sprintf(out_path, "%s.str", in_paths[i]);
 
                 in = fopen(in_paths[i], "r");
                 out = fopen(out_path, "w");
