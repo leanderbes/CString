@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
         if (!in_count)
                 goto use_stdin;
 
-
         for (int i = 0; i < in_count && in_paths[i]; ++i) {
                 FILE *in;
                 FILE *out;
@@ -60,13 +59,14 @@ translate_loop:
                 putc('"', out);
                 for (;;) {
                         int c = getc(in);
-                        if (HEX)
+                        if (HEX) {
                                 if (c != EOF)
                                         fprintf(out, "\\x%02x", c);
                                 else {
                                         putc('"', out);
                                         goto end;
                                 }
+                        }
                         else switch (c) {
                                 case '\\':
                                         fputs("\\\\", out);
